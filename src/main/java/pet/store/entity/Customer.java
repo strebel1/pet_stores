@@ -10,7 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -23,11 +22,7 @@ public class Customer {
 	@Id
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	  private Long customerId;
-
-	
 	  private String customerFirstName;
-	 
-	
 	  private String customerLastName;
 	  
 	  @Column(unique = true)

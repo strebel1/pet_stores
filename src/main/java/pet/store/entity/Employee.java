@@ -22,9 +22,9 @@ public class Employee {
 	@Id
 	@GeneratedValue (strategy =GenerationType.IDENTITY)
 	private Long employeeId;
-	
 	private String employeeFirstName;
 	private String employeeLastName;
+	private String employeeJobTitle;
 	
 	@Column(unique = true)
 	private String employeePhone; 

@@ -30,9 +30,9 @@ public class PetStore {
 	
 	private String petStoreState;
 	
-	private Long petStoreZip;
+	private String petStoreZip;
 	
-	private Long petStorePhone;
+	private String petStorePhone;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
