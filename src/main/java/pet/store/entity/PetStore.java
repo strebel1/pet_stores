@@ -48,5 +48,10 @@ public class PetStore {
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	private Set<Employee> employees = new HashSet<>(); 
+	private Set<Employee> employees = new HashSet<>();
+
+	public void addEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		
+	} 
 }
