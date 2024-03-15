@@ -177,8 +177,7 @@ public class PetStoreService {
 			
 			public List<PetStoreData> retrieveAllPetStores() {
 			
-			List<PetStore> petStores = petStoreDao.findAll();)
-				
+			List<PetStore> petStores = petStoreDao.findAll();
 			List<PetStoreData> result = new LinkedList<>();
 			
 			for(PetStore petStore: petStores) {

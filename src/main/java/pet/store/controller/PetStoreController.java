@@ -42,7 +42,7 @@ public class PetStoreController {
 
 	}
 
-	@PostMapping("/petStore/{petStoreId}")
+	@PutMapping("/petStore/{petStoreId}")
 	public PetStoreData updatePetStore(@PathVariable Long petStoreId, @RequestBody PetStoreData petStoreData) {
 		petStoreData.setPetStoreId(petStoreId);
 		log.info("Updating petStoreId{}", petStoreData);
@@ -55,43 +55,39 @@ public class PetStoreController {
 	public PetStoreEmployee addEmployeeToPetStore(@PathVariable Long petStoreId,
 			@RequestBody PetStoreEmployee petStoreEmployee) {
 		log.info("Adding employee{} to pet store with ID={}", petStoreEmployee, petStoreId);
-		
+
 		return petStoreService.savePetStoreEmployee(petStoreId, petStoreEmployee);
 
 	}
-	
-	@PostMapping ("/{petStoreId}/customer")
+
+	@PostMapping("/{petStoreId}/customer")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	
-	public PetStoreCustomer addCustomerToPetStore(@PathVariable Long petStoreId, 
+
+	public PetStoreCustomer addCustomerToPetStore(@PathVariable Long petStoreId,
 			@RequestBody PetStoreCustomer petStoreCustomer) {
 		log.info("Adding customer {} to pet store with ID={}", petStoreCustomer, petStoreId);
 		return petStoreService.saveCustomer(petStoreId, petStoreCustomer);
 	}
- @GetMapping("/{petStoreId}")
- public PetStoreData retrievePetStoreById(@PathVariable Long petStoreId) {
-	 log.info("Retrieving pet store with ID={}", petStoreId);
-	 return petStoreService.retrievePetStoryById(petStoreId);
-	 
- }
- 
- @GetMapping 
 
- public List<PetStoreData> retrieveAllPetStores() {
- 		return petStoreService.retrieveAllPetStores();
- 	}
-	 
- @DeleteMapping ("/{petStoreId}")
- public Map<String, String> deletePetStoreById(@PathVariable Long petStoreId){
-	 log.info("Deleting pet store with ID={}", petStoreId);
-	 petStoreService.deletePetStoreById(petStoreId);
-	return Map.of("message","Pet store with ID" + petStoreId + "has been deleted");
+	@GetMapping("/{petStoreId}")
+	public PetStoreData retrievePetStoreById(@PathVariable Long petStoreId) {
+		log.info("Retrieving pet store with ID={}", petStoreId);
+		return petStoreService.retrievePetStoryById(petStoreId);
 
-	
+	}
 
-	 
- }
-	 
-	 
- }
+	@GetMapping
 
+	public List<PetStoreData> retrieveAllPetStores() {
+		return petStoreService.retrieveAllPetStores();
+	}
+
+	@DeleteMapping("/{petStoreId}")
+	public Map<String, String> deletePetStoreById(@PathVariable Long petStoreId) {
+		log.info("Deleting pet store with ID={}", petStoreId);
+		petStoreService.deletePetStoreById(petStoreId);
+		return Map.of("message", "Pet store with ID " + petStoreId + "has been deleted");
+
+	}
+
+}
